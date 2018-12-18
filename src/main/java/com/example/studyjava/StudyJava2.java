@@ -6,7 +6,7 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class StudyJava2 {
-    
+
     public static void main(String[] args) {
         // データを取得
         Scanner scanner = new Scanner(System.in);
