@@ -6,25 +6,31 @@ public class StudyJava3 {
     public static void main(String[] args) {
         // データを取得
         Scanner scanner = new Scanner(System.in);
-        int loopCount = scanner.nextInt();
-        int nums[] = new int[loopCount];
-        for (int n = 0; n < loopCount ; n++) {
-            nums[n] = scanner.nextInt();
+        // 長さを取得しておく
+        int length = scanner.nextInt();
+        // lengthの長さで配列を作る
+        int[] value = new int[length];
+        for (int n = 0; n < length; n++) {
+            value[n] = scanner.nextInt();
         }
 
-        boolean isNext = true;
-        // フラグがtrueの時だけループする
-        int looped = 0;
-        while (isNext) {
-            for (int n = 0; n < nums.length ; n++) {
-                if (nums[n] % 2 == 1) {
-                    isNext = false;
+        // フラグを持たせる
+        boolean goNext = true;
+        int loopCount = 0;
+
+        while (goNext) {
+            for (int n = 0; n < length; n++) {
+                // 奇数だったら抜ける
+                if (value[n] % 2 == 1) {
+                    goNext = false;
                     break;
                 }
-                nums[n] /= 2;
+                // 偶数の場合は2で割る
+                value[n] /= 2;
             }
-            looped++;
+            loopCount++;
         }
-        System.out.println(looped - 1);
+        // 抜けた場合でも1加算されているので減算しておく
+         System.out.println(loopCount - 1);
     }
 }
